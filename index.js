@@ -160,13 +160,21 @@ let myObject = {
   }, // Оголошення методу Symbol.iterator для об'єкта "myObject"
   //Повертаємо this
 
- 
-   // Оголошення методу "next" для ітерації
-  // Створюємо логічний оператор який буде перевіряти чи властивість об'єкту currentIndex менша ніж довжина масиву category
-  //Створюємо змінну value якій присвоємо властивість name елемента масиву category з індексом currentIndex
-  // Збільшимо currentIndex на одиницю
-  // Повертаємо об'єкт з властивістю value значенням якої буде value,та прапорцем done: false
-  //Якщо властивість об'єкту currentIndex більше або дорівнює довжині масиву category повертаємо об'єкт з прапорцем done: true, коли ітерація закінчена
+  next(){
+    if (this.currentIndex < this.category.length){
+      const value = this.category[this.currentIndex].name;
+      this.currentIndex++;
+      return {value, done:false};
+    } else {
+      return {done: true};
+    }
+  },
+      // Оголошення методу "next" для ітерації
+      // Створюємо логічний оператор який буде перевіряти чи властивість об'єкту currentIndex менша ніж довжина масиву category
+      //Створюємо змінну value якій присвоємо властивість name елемента масиву category з індексом currentIndex
+      // Збільшимо currentIndex на одиницю
+      // Повертаємо об'єкт з властивістю value значенням якої буде value,та прапорцем done: false
+      //Якщо властивість об'єкту currentIndex більше або дорівнює довжині масиву category повертаємо об'єкт з прапорцем done: true, коли ітерація закінчена
 };
 
 console.log("Завдання 10 ====================================");
